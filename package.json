@@ -1,5 +1,5 @@
 {
-  "name": "jensparallax",
+  "name": "jensswipe",
   "version": "0.2.2",
   "description": "A simple jQuery swipe detection plugin",
   "scripts": {
@@ -15,7 +15,7 @@
     "drag",
     "pgml"
   ],
-  "author": "Tobias Walter, Rico Dang",
+  "author": "Rico Dang",
   "bugs": {
     "url": "https://github.com/pgmlde/JensSwipe/issues"
   },
