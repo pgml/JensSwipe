@@ -1,13 +1,12 @@
-var	gulp     = require('gulp')
-  , babel    = require('gulp-babel')
-  , concat   = require('gulp-concat')
-  , uglify   = require('gulp-uglify')
-  , plumber  = require('gulp-plumber')
-  , using    = require('gulp-using')
+var	gulp    = require('gulp')
+  , babel   = require('gulp-babel')
+  , uglify  = require('gulp-uglify')
+  , plumber = require('gulp-plumber')
+  , rename  = require('gulp-rename')
+  , using   = require('gulp-using')
   // Define some individual deploy params
-  , src_dir       = 'src/'
-  , dist_dir      = 'dist/'
-  , dist_js_file  = 'jquery.JensSwipe.min.js'
+  , src_dir  = 'src/'
+  , dist_dir = 'dist/'
   // Package options
   , using_options_processing = { prefix: 'Processing', path: 'cwd', filesize: true }
   , using_options_merging    = { prefix: 'Merging to', path: 'cwd', filesize: true }
@@ -27,17 +26,18 @@ var	gulp     = require('gulp')
 gulp.task('deploy-js', function() {
 	// First concat all js files together and compile babel
 	var stream = gulp
-		.src([src_dir + 'jensswipe.js'])
+		.src([src_dir + '*.js'])
 		.pipe(plumber({ plumber_handle_err }))
 		.pipe(using(using_options_processing))
-		.pipe(babel({ presets: ['es2015'] }))
-		.pipe(concat(dist_js_file));
+		.pipe(babel({ presets: ['es2015'] }));
 
 	// After uglifying save into dest-directory
 	return stream
-		.pipe(using(using_options_merging))
-		.pipe(gulp.dest(dist_dir))
 		.pipe(uglify({preserveComments: 'license'}))
+		.pipe(rename({
+			prefix: 'jquery.',
+			suffix: '.min'
+		}))
 		.pipe(gulp.dest(dist_dir))
 		.pipe(using(using_options_cleaning));
 });
