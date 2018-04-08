@@ -1,0 +1,34 @@
+{
+  "name": "jensparallax",
+  "version": "0.2.2",
+  "description": "A simple jQuery swipe detection plugin",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pgmlde/JensSwipe.git"
+  },
+  "keywords": [
+    "jquery",
+    "swipe",
+    "drag",
+    "pgml"
+  ],
+  "author": "Tobias Walter, Rico Dang",
+  "bugs": {
+    "url": "https://github.com/pgmlde/JensSwipe/issues"
+  },
+  "homepage": "https://github.com/pgmlde/JensSwipe#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-clean-css": "^3.9.3",
+    "gulp-concat": "^2.6.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-uglify": "^2.1.2",
+    "gulp-using": "*"
+  }
+}
